@@ -23,7 +23,7 @@ import ProductItem from "../components/ProductItem";
 
 
 const screen = Dimensions.get("screen");
-const SWIPE_SPEED_TO_CLOSE_MODAL = 20; // Increase this value to detect only faster gestures
+const DISTANCE_SWIPE_DOWN_TO_CLOSE_MODAL = 20; //This is de distance of vertical gesture for close Modal
 
 const Home = () => {
     const [animation, setAnimation] = useState(new Animated.Value(0));
@@ -75,7 +75,7 @@ const Home = () => {
 
     // Detect Swipe speed for close Modal
     const gesture = Gesture.Pan().onUpdate((event) => {
-        if (event.translationY > SWIPE_SPEED_TO_CLOSE_MODAL) {
+        if (event.translationY > DISTANCE_SWIPE_DOWN_TO_CLOSE_MODAL) {
             closeModal();
         }
     })
